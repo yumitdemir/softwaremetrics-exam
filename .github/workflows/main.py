@@ -88,5 +88,12 @@ class TestMathFunctions(unittest.TestCase):
         result = self.math_funcs.degrees(0.5 * math.pi)
         self.assertEqual(result, 90)
 
+    def test_degrees_with_none_input(self) -> None:
+        """
+        Test the degrees function with a None input.
+        """
+        with self.assertRaises(TypeError):
+            self.math_funcs.degrees(None)
+
 if __name__ == '__main__':
     unittest.main()
