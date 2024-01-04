@@ -1,21 +1,31 @@
 import unittest
 import math
+from typing import Union
+
 
 class MathFunctions:
     """
     A class containing mathematical functions.
     """
 
-    def degrees(self, radians: float) -> float:
+    def degrees(self, radians: Union[int, float]) -> float:
         """
         Convert radians to degrees.
 
         Args:
-            radians (float): The angle in radians.
+            radians (Union[int, float]): The angle in radians.
 
         Returns:
             float: The angle in degrees.
+
+        Raises:
+            TypeError: If the input is not a valid numeric type.
         """
+        if radians is None:
+            raise TypeError("Input cannot be None.")
+        if not isinstance(radians, (int, float)):
+            raise TypeError("Input must be a numeric type (int or float).")
+
         return math.degrees(radians)
 
 class TestMathFunctions(unittest.TestCase):
